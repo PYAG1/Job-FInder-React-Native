@@ -1,13 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Indexcl from "./indexcl";
+import { ScreenHeaderBtn } from './components';
+import {COLORS, icons,images,SIZES}from './constants';
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const Stack = createNativeStackNavigator();
+    return(
+    <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen name="home" component={Indexcl} options={{
+              headerShadowVisible:false,
+              headerLeft:()=>{
+                return  <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>
+              },
+              headerRight:()=>{
+              return  <ScreenHeaderBtn iconUrl={images.profile} dimension="100%"/>
+            },
+            headerTitle:""
+            }}/>
+        </Stack.Navigator>
+        
+    </NavigationContainer>
+   
+    )
+
+   
+
 }
 
 
