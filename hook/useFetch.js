@@ -23,6 +23,7 @@ const useFetch = (endpoint,query)=>{
             'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
           }
         };
+
         
 
         async function fetchData() {
